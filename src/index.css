@@ -26,3 +26,7 @@
     border-radius: 20px;
     background-color:lightblue;
 }
+.previewImage{
+    height: 300px;
+    width: 300px;
+}

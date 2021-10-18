@@ -1,13 +1,15 @@
 import React from "react"
 import EditMeme from "./EditMeme"
 
-class SavedMemeList extends React.Component {
+function SavedMemeList(props) {
     
-    render(){
+    
         return(
             <div className="savedContainer">
                 <div className="savedMeme">
-
+                <img src={props.url} />
+                <h3 className="topTextSavedMeme">{props.topText}</h3>
+                <h3 className="bottomTextSavedMeme">{props.bottomText}</h3>
                 </div>
                 <div className="savedMemeControls">
                     <EditMeme />
@@ -15,7 +17,7 @@ class SavedMemeList extends React.Component {
                 </div>
             </div>
         )
-    }
+    
 }
 
 export default SavedMemeList
