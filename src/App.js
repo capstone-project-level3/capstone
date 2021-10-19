@@ -58,24 +58,23 @@ class App extends React.Component {
 
     render(){
         return(
-            <div>
+            <div id="main">
+                <h1>Make A Meme</h1>
+                <div className="memePrevBox">
+                    <MemePreview 
+                        url={this.state.imgURL} 
+                        handleClick={this.handleClick} 
+                        upperText={this.state.upperText}
+                        lowerText={this.state.lowerText} />
                 
-                <MemePreview 
-                    url={this.state.imgURL} 
-                    handleClick={this.handleClick} 
-                    upperText={this.state.upperText}
-                    lowerText={this.state.lowerText} />
-                
-                <InputForm 
-                    handleSubmit={this.handleSubmit} 
-                    handleChange={this.handleChange} 
-                    upperText={this.state.upperText} 
-                    lowerText={this.state.lowerText}/>
-
-               <h3>{this.state.upperText} {this.state.lowerText}</h3>
-               
-               
-                
+                    <InputForm 
+                        handleSubmit={this.handleSubmit} 
+                        handleChange={this.handleChange} 
+                        upperText={this.state.upperText} 
+                        lowerText={this.state.lowerText}/>
+                </div>
+                <h1>Saved Memes</h1>
+                <SavedMemeList />
             </div>
         )
     }

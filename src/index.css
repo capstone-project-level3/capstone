@@ -1,3 +1,48 @@
+body {
+    background-color: #EAE7DC;
+}
+h1 {
+    background-color: #D8C385;
+    box-shadow: 10px 10px 5px grey;
+    color: #E98074;
+    text-shadow: -1px 0 #E85A4F, 0 1px #E85A4F, 1px 0 #E85A4F, 0 -1px #E85A4F;
+}
+#main{
+    width: 500px;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+.memePrevBox {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 500px;
+
+    background-color: #8E8D8A
+}
+#changeMemeBtn {
+    margin-top: 20px
+}
+
+input {
+    margin: 10px 5px;
+    background-color: #EAE7DC;
+}
+.inputs{
+    margin: auto;
+}
+#upTextPrev {
+    position: relative;
+    top: 50px;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#lowTextPrev {
+    position: relative;
+    bottom: 60px;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 .savedContainer{
     display: flex;
     
@@ -6,7 +51,7 @@
 .savedMeme{
     height: 400px;
     width: 400px;
-    background-color: brown;
+    background-color: #8E8D8A;
 }
 .savedMemeControls{
     margin-top: 100px;
@@ -27,6 +72,5 @@
     background-color:lightblue;
 }
 .previewImage{
-    height: 300px;
     width: 300px;
 }
