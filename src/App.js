@@ -60,8 +60,18 @@ class App extends React.Component {
         return(
             <div>
                 
-              <MemePreview url={this.state.imgURL} handleClick={this.handleClick} />
-               <InputForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} upperText={this.state.upperText} lowerText={this.state.lowerText}/>
+                <MemePreview 
+                    url={this.state.imgURL} 
+                    handleClick={this.handleClick} 
+                    upperText={this.state.upperText}
+                    lowerText={this.state.lowerText} />
+                
+                <InputForm 
+                    handleSubmit={this.handleSubmit} 
+                    handleChange={this.handleChange} 
+                    upperText={this.state.upperText} 
+                    lowerText={this.state.lowerText}/>
+
                <h3>{this.state.upperText} {this.state.lowerText}</h3>
                
                
