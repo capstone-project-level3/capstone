@@ -1,19 +1,17 @@
 import React from "react"
+import Meme from "./Meme"
 import EditMeme from "./EditMeme"
 
 function SavedMemeList(props) {
     
-    
+        const memeList = props.memeList.map((meme,index)=> <Meme key={index+meme} upperText={meme.upperText} lowerText={meme.lowerText} imgURL={meme.imgURL}/>)
         return(
             <div className="savedContainer">
-                <div className="savedMeme">
-                <img src={props.url} />
-                <h3 className="topTextSavedMeme">{props.topText}</h3>
-                <h3 className="bottomTextSavedMeme">{props.bottomText}</h3>
+                <div className="savedMemeList">
+                    {memeList}
                 </div>
                 <div className="savedMemeControls">
                     <EditMeme />
-                    <button className="deleteBtn">DELETE</button>
                 </div>
             </div>
         )

@@ -18,7 +18,7 @@ function InputForm(props){
                 value={props.lowerText} 
                 placeholder="lower text" />
             <br></br>
-            <button onClick={props.handleSubmit}>SAVE CHANGES</button>
+            <button onClick={props.handleSubmit} id="saveMemeBtn">SAVE MEME</button>
         </div>
     )
 }
