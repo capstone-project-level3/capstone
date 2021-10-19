@@ -70,11 +70,13 @@ input {
 }
 
 .editInput{
+    
     border: none;
     border-bottom: 1px solid black;
     border-radius: 20px;
     background-color:lightblue;
 }
+
 
 img {
     border: 1px solid black

@@ -6,6 +6,7 @@ import SavedMemeList from "./SavedMemeList"
 
 
 
+
 class App extends React.Component {
     constructor(){
         super()
@@ -13,11 +14,15 @@ class App extends React.Component {
             upperText: "",
             lowerText: "",
             imgURL: "",
-            savedMemes: []
+            savedMemes: [],
+            display: "none"
+            
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleEdit = this.handleEdit.bind(this)
+        this.handleDelete = this.handleDelete.bind(this)
     }
     componentDidMount(){
         fetch("https://api.imgflip.com/get_memes")
@@ -57,6 +62,7 @@ class App extends React.Component {
                 imgURL: prevState.imgURL,
                 savedMemes: [
                     {upperText: this.state.upperText,
+                    thisKey: `${this.state.imgURL}+${this.state.upperText}`,
                     lowerText: this.state.lowerText,
                     imgURL: this.state.imgURL,},
                     ...prevState.savedMemes
@@ -66,7 +72,18 @@ class App extends React.Component {
         
         
     }
-
+    handleEdit(){
+        if(this.state.display==='none'){
+            this.setState({display: 'block'})
+        }else{
+            this.setState({display: 'none'})
+        }
+        console.log()
+    }
+    handleDelete(){
+        
+        console.log(this.state.savedMemes.map(item => item.thisKey))
+    }
     
 
     render(){
@@ -87,7 +104,12 @@ class App extends React.Component {
                         lowerText={this.state.lowerText}/>
                 </div>
                 <h1>Saved Memes</h1>
-                <SavedMemeList memeList={this.state.savedMemes}/>
+                <SavedMemeList memeList={this.state.savedMemes}
+                memeDisplay={this.state.memeDisplay} 
+                 
+                handleEdit={this.handleEdit} 
+                handleDelete={this.handleDelete}
+                display={this.state.display} />
             </div>
         )
     }

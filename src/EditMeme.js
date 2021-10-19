@@ -4,6 +4,7 @@ function EditMeme(props){
     return(
         <form>
             <input 
+                style={{display:props.display}}
                 type="text" 
                 className="editInput" 
                 name="topText" 
@@ -12,6 +13,7 @@ function EditMeme(props){
             />
             <br/><br/>
             <input 
+                style={{display:props.display}}
                 type="text" 
                 className="editInput" 
                 name="bottomText" 
@@ -19,7 +21,7 @@ function EditMeme(props){
                 placeholder="Bottom Text" 
             />
             <br/><br/>
-            <button className="saveBtn">SAVE</button>
+            <button className="saveBtn" style={{display:props.display}}>SAVE</button>
         </form>
     )
 }
