@@ -6,8 +6,8 @@ function Meme(props) {
             <h2 className="upTextSaved">{props.upperText}</h2>
             <img alt="meme" className="savedMemeImage" src={props.imgURL} />
             <h2 className="lowTextSaved">{props.lowerText}</h2>
-            <button className="editBtn">EDIT</button>
-            <button className="deleteBtn">DELETE</button>
+            <button className="editBtn" onClick={props.handleEdit}>EDIT</button>
+            <button className="deleteBtn" onClick={props.handleDelete} >DELETE</button>
 
         </div>
     )
