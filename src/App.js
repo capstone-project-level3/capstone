@@ -50,6 +50,19 @@ class App extends React.Component {
     }
 
     handleSubmit(){
+        this.setState(prevState => {
+            return({
+                upperText: "",
+                lowerText: "",
+                imgURL: prevState.imgURL,
+                savedMemes: [
+                    {upperText: this.state.upperText,
+                    lowerText: this.state.lowerText,
+                    imgURL: this.state.imgURL,},
+                    ...prevState.savedMemes
+                ]
+            })
+        })
         
         
     }
@@ -74,7 +87,7 @@ class App extends React.Component {
                         lowerText={this.state.lowerText}/>
                 </div>
                 <h1>Saved Memes</h1>
-                <SavedMemeList />
+                <SavedMemeList memeList={this.state.savedMemes}/>
             </div>
         )
     }
