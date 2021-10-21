@@ -15,7 +15,6 @@ class Meme extends React.Component {
         } else{
             this.setState({display: 'none'})
         }
-        console.log(this.state.display)
     }
     render(){
         return(
@@ -23,7 +22,15 @@ class Meme extends React.Component {
                 <h2 className="upTextSaved">{this.props.upperText}</h2>
                 <img alt="meme" className="savedMemeImage" src={this.props.imgURL} />
                 <h2 className="lowTextSaved">{this.props.lowerText}</h2>
-                <EditMeme handleChange={this.props.handleChange} handleSave={this.props.handleSave} id={this.props.id} handleEdit={this.handleEdit} display={this.state.display} />
+                <EditMeme 
+                    handleChange={this.props.handleChange} 
+                    handleSave={this.props.handleSave} 
+                    id={this.props.id} 
+                    handleEdit={this.handleEdit} 
+                    display={this.state.display} 
+                    upperText={this.props.upperText}
+                    lowerText={this.props.lowerText}
+                />
                 <button className="editBtn" onClick={this.handleEdit}>EDIT</button>
                 <button className="deleteBtn" onClick={this.props.handleDelete} >DELETE</button>
             
