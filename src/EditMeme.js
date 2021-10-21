@@ -44,7 +44,13 @@ class  EditMeme extends React.Component {
                 />
                 <br/>
                 <button 
-                className="saveBtn" onClick={() => {this.props.handleSave(this.props.id,this.state.upperText,this.state.lowerText); this.props.handleEdit(); this.handleSaving()}}>SAVE</button>
+                    className="saveBtn" 
+                    onClick={() => {
+                        this.props.handleSave(this.props.id,this.state.upperText,this.state.lowerText); 
+                        this.props.handleEdit(); 
+                        this.handleSaving()
+                    }}
+                >SAVE</button>
             </div>
         )
     }

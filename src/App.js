@@ -56,11 +56,10 @@ class App extends React.Component {
                 imgURL: prevState.imgURL,
                 savedMemes: [
                     {upperText: this.state.upperText,
-                    thisKey: `${this.state.imgURL}+${this.state.upperText}`,
                     lowerText: this.state.lowerText,
                     imgURL: this.state.imgURL,
                     id: Math.random() * 100,
-                    display: "none"},
+                    },
                     ...prevState.savedMemes
                 ]
             })
@@ -79,9 +78,14 @@ class App extends React.Component {
 
     }
     
-    handleDelete(){
-    
-        console.log(this.state.savedMemes.map(item => item.thisKey))
+    handleDelete(id){
+        const index = this.state.savedMemes.findIndex(meme => meme.id === id)
+        let editedArray = [...this.state.savedMemes]
+        editedArray.splice([index],1)
+        
+        this.setState({
+            savedMemes: editedArray
+        })
     }
     
 
