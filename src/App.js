@@ -14,15 +14,13 @@ class App extends React.Component {
             upperText: "",
             lowerText: "",
             imgURL: "",
-            savedMemes: [],
-            display: "none"
-            
+            savedMemes: [],            
         }
         this.handleClick = this.handleClick.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleEdit = this.handleEdit.bind(this)
         this.handleDelete = this.handleDelete.bind(this)
+        this.handleSave = this.handleSave.bind(this)
     }
     componentDidMount(){
         fetch("https://api.imgflip.com/get_memes")
@@ -64,7 +62,8 @@ class App extends React.Component {
                     {upperText: this.state.upperText,
                     thisKey: `${this.state.imgURL}+${this.state.upperText}`,
                     lowerText: this.state.lowerText,
-                    imgURL: this.state.imgURL,},
+                    imgURL: this.state.imgURL,
+                    display: "none"},
                     ...prevState.savedMemes
                 ]
             })
@@ -72,16 +71,14 @@ class App extends React.Component {
         
         
     }
-    handleEdit(){
-        if(this.state.display==='none'){
-            this.setState({display: 'block'})
-        }else{
-            this.setState({display: 'none'})
-        }
-        console.log()
+    handleSave(e){
+        e.preventDefault()
+        console.log("test")
+
     }
+    
     handleDelete(){
-        
+    
         console.log(this.state.savedMemes.map(item => item.thisKey))
     }
     
@@ -95,21 +92,24 @@ class App extends React.Component {
                         url={this.state.imgURL} 
                         handleClick={this.handleClick} 
                         upperText={this.state.upperText}
-                        lowerText={this.state.lowerText} />
+                        lowerText={this.state.lowerText} 
+                    />
                 
                     <InputForm 
                         handleSubmit={this.handleSubmit} 
                         handleChange={this.handleChange} 
                         upperText={this.state.upperText} 
-                        lowerText={this.state.lowerText}/>
+                        lowerText={this.state.lowerText}
+                    />
                 </div>
                 <h1>Saved Memes</h1>
-                <SavedMemeList memeList={this.state.savedMemes}
-                memeDisplay={this.state.memeDisplay} 
-                 
-                handleEdit={this.handleEdit} 
-                handleDelete={this.handleDelete}
-                display={this.state.display} />
+                <SavedMemeList 
+                    memeList={this.state.savedMemes}
+                    memeDisplay={this.state.memeDisplay}  
+                    handleDelete={this.handleDelete}
+                    handleSave={this.handleSave}
+                    handleChange={this.handleChange}
+                />
             </div>
         )
     }
