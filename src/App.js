@@ -60,7 +60,7 @@ class App extends React.Component {
                     lowerText: this.state.lowerText,
                     imgURL: this.state.imgURL,
                     id: Math.random() * 100,
-                    display: "none"},
+                    },
                     ...prevState.savedMemes
                 ]
             })
