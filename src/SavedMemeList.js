@@ -4,12 +4,12 @@ import Meme from "./Meme"
 
 function SavedMemeList(props) {
     
-        const memeList = props.memeList.map((meme,index)=> 
+        const memeList = props.memeList.map((meme)=> 
             <Meme 
                 handleDelete={props.handleDelete}
                 handleSave={props.handleSave}
                 handleChange={props.handleChange}
-                key={index+meme} 
+                key={meme+meme.id} 
                 upperText={meme.upperText} 
                 lowerText={meme.lowerText} 
                 imgURL={meme.imgURL}

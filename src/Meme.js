@@ -32,7 +32,7 @@ class Meme extends React.Component {
                     lowerText={this.props.lowerText}
                 />
                 <button className="editBtn" onClick={this.handleEdit}>EDIT</button>
-                <button className="deleteBtn" onClick={this.props.handleDelete} >DELETE</button>
+                <button className="deleteBtn" onClick={() => this.props.handleDelete(this.props.id)} >DELETE</button>
             
 
             </div>
