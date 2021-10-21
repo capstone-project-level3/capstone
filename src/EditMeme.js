@@ -2,26 +2,26 @@ import React from "react"
 
 function EditMeme(props){
     return(
-        <form>
+        <form style={{display:props.display}}>
             <input 
-                style={{display:props.display}}
                 type="text" 
                 className="editInput" 
-                name="topText" 
-                value={props.topText} 
-                placeholder="Top Text" 
+                name="upperText" 
+                value={props.upperText} 
+                placeholder="upper Text" 
+                onChange={props.handleChange}
             />
-            <br/><br/>
+            <br/>
             <input 
-                style={{display:props.display}}
                 type="text" 
                 className="editInput" 
-                name="bottomText" 
-                value={props.bottomText} 
-                placeholder="Bottom Text" 
+                name="lowerText" 
+                value={props.lowerText} 
+                placeholder="lower Text" 
+                onChange={props.handleChange}
             />
-            <br/><br/>
-            <button className="saveBtn" style={{display:props.display}}>SAVE</button>
+            <br/>
+            <button className="saveBtn" onClick={props.handleSave}>SAVE</button>
         </form>
     )
 }
