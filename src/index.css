@@ -51,6 +51,9 @@ input {
     overflow-wrap: break-word;
 
 }
+.upTextSaved, .lowTextSaved {
+    width: 500px;
+}
 .previewImage, .savedMemeImage{
     width: 300px;
 }
