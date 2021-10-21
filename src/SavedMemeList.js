@@ -13,7 +13,7 @@ function SavedMemeList(props) {
                 upperText={meme.upperText} 
                 lowerText={meme.lowerText} 
                 imgURL={meme.imgURL}
-                id={Math.random() * 100 + 1}
+                id={meme.id}
             />)
         return(
             <div className="savedContainer">

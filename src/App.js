@@ -3,10 +3,6 @@ import MemePreview from "./MemePreview"
 import InputForm from "./InputForm"
 import SavedMemeList from "./SavedMemeList"
 
-
-
-
-
 class App extends React.Component {
     constructor(){
         super()
@@ -63,6 +59,7 @@ class App extends React.Component {
                     thisKey: `${this.state.imgURL}+${this.state.upperText}`,
                     lowerText: this.state.lowerText,
                     imgURL: this.state.imgURL,
+                    id: Math.random() * 100,
                     display: "none"},
                     ...prevState.savedMemes
                 ]
@@ -71,9 +68,14 @@ class App extends React.Component {
         
         
     }
-    handleSave(e){
-        e.preventDefault()
-        console.log("test")
+    handleSave(id,upText,lowText){
+        const index = this.state.savedMemes.findIndex(meme => meme.id === id)
+        let editedArray = [...this.state.savedMemes]
+        editedArray[index] = {...editedArray[index], upperText: upText, lowerText: lowText}
+        
+        this.setState({
+            savedMemes: editedArray
+        })
 
     }
     
@@ -105,10 +107,10 @@ class App extends React.Component {
                 <h1>Saved Memes</h1>
                 <SavedMemeList 
                     memeList={this.state.savedMemes}
-                    memeDisplay={this.state.memeDisplay}  
                     handleDelete={this.handleDelete}
                     handleSave={this.handleSave}
                     handleChange={this.handleChange}
+
                 />
             </div>
         )
